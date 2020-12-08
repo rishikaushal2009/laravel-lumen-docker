@@ -28,8 +28,14 @@ services:
       - ./src:/var/www/html
     ports:
       - "80:80"
-    depends_on:
+        #depends_on:
+    links:
       - mysql
+    environment:
+      DB_HOST: mysql
+      DB_DATABASE: appdb
+      DB_USERNAME: user
+      DB_PASSWORD: myuserpass
 
 secrets:
   db_root_password:
